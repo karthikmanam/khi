@@ -20,6 +20,20 @@ on:
       - 'main'
 
 jobs:
+  lint:
+    name: Lint Markdown with Vale
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run Vale linting
+        uses: errata-ai/vale-action@d027270961a47e2261440e037ef59f1ecafb1681 #v2.1.1
+        with:
+          debug: true
+          fail_on_error: true
+          reporter: github-check
+
   backend-tests:
     runs-on: ubuntu-latest
     permissions:

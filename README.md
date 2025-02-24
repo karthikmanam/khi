@@ -91,7 +91,6 @@ For more details, please try [Getting started](./docs/en/getting-started.md).
 - Node.js environment 22.13.*
 - [`gcloud` CLI](https://cloud.google.com/sdk/docs/install)
 - [`jq` command](https://jqlang.org/)
-- [ `vale` command](https://github.com/errata-ai/vale)
 
 #### Initialization (one-time setup)
 1. Download or clone this repository   
@@ -104,28 +103,7 @@ For more details, please try [Getting started](./docs/en/getting-started.md).
 We use Vale to enforce our documentation style and ensure consistency across our Markdown files.
 
 ### Installation of Vale
-
-#### macOS
-    ```bash
-    brew install vale
-    ```
-
-#### Windows
-    ```bash
-    scoop install vale
-    ```
-
-#### Linux
-    ```bash
-    curl -L "https://github.com/errata-ai/vale/releases/download/v2.22.0/vale_2.22.0_Linux_64-bit.tar.gz" -o vale.tar.gz
-    tar -xzvf vale.tar.gz
-    sudo mv vale /usr/local/bin/vale
-    ```
-
-#### How to run Vale locally
-    ```bash
-    vale .
-    ```
+Please follow the instructions mentioned [here](https://vale.sh/docs/install)
 
 #### Run KHI
 1. [Authorize yourself with `gcloud`](https://cloud.google.com/docs/authentication/gcloud)  
