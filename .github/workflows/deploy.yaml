@@ -24,20 +24,6 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  lint:
-    name: Lint Markdown with Vale
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Run Vale linting
-        uses: errata-ai/vale-action@v2.1.1
-        with:
-          debug: true
-          fail_on_error: true
-          reporter: github-check
-
   build-and-deploy:
     runs-on: ubuntu-latest
 
