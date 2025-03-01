@@ -40,7 +40,7 @@ jobs:
           wget -q https://languagetool.org/download/LanguageTool-stable.zip -O LanguageTool.zip
           unzip -q LanguageTool.zip
           # Confirm the jar exists (it should be at LanguageTool-stable/LanguageTool-commandline.jar)
-          if [ ! -f LanguageTool-6.5/languagetool-commandline ]; then
+          if [ ! -f LanguageTool-6.5/languagetool-commandline.jar ]; then
             echo "languagetool-commandline not found!"
             exit 1
           fi
