@@ -45,7 +45,7 @@ jobs:
             exit 1
           fi
 
-      # Step 4: Run LanguageTool on all Markdown files in English
+      # Step 4: Run LanguageTool on all Markdown files in English.
       - name: Lint English Markdown Files
         run: |
           # Find all Markdown files
@@ -63,7 +63,7 @@ jobs:
           done
           exit $EXIT_CODE
       
-      # Step 5: Run LanguageTool on all Markdown files in Japanese language
+      # Step 5: Run LanguageTool on all Markdown files in Japanese language.
       - name: Lint Japanese Markdown Files
         run: |
           # Find all Markdown files
