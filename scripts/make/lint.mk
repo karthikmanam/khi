@@ -2,10 +2,6 @@
 lint-web: prepare-frontend
 	cd web && npx ng lint
 
-.PHONY=lint-doc
-lint-doc:
-	vale .
-
 .PHONY=lint-go
 lint-go:
 	go vet ./...

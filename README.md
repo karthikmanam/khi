@@ -99,11 +99,11 @@ For more details, please try [Getting started](./docs/en/getting-started.md).
   e.g. `cd khi`
 1. Run `cd ./web && npm install` from the project root
 
-#### Vale linting 
-We use Vale to enforce our documentation style and ensure consistency across our Markdown files.
+#### LanguageTool linting 
+We use LanguageTool to enforce our documentation style and ensure consistency across our Markdown files.
 
-### Installation of Vale
-Please follow the instructions mentioned [here](https://vale.sh/docs/install)
+### Installation of LanguageTool
+`make languagelint`
 
 #### Run KHI
 1. [Authorize yourself with `gcloud`](https://cloud.google.com/docs/authentication/gcloud)  
