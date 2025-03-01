@@ -37,10 +37,10 @@ jobs:
       # Step 3: Download and unzip LanguageTool CLI
       - name: Download LanguageTool CLI
         run: |
-          wget -q https://github.com/languagetool-org/languagetool/archive/refs/tags/v6.5.zip -O LanguageTool.zip
+          wget -q https://languagetool.org/download/LanguageTool-stable.zip -O LanguageTool.zip
           unzip -q LanguageTool.zip
           # Confirm the jar exists (it should be at LanguageTool-stable/LanguageTool-commandline.jar)
-          if [ ! -f LanguageTool-stable/LanguageTool-commandline.jar ]; then
+          if [ ! -f LanguageTool-6.5/LanguageTool-commandline.jar ]; then
             echo "LanguageTool-commandline.jar not found!"
             exit 1
           fi
