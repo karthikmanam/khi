@@ -72,7 +72,7 @@ This makes it an invaluable tool for troubleshooting complex issues that span mu
 > If you want to run KHI with the other environment where the metadata server is not available,
 > you can pass the access token via the program argument.
 >
->```
+>```bash
 >$ docker run -p 127.0.0.1:8080:8080 asia.gcr.io/kubernetes-history-inspector/release:latest -access-token=`gcloud auth print-access-token`
 >```
 
@@ -99,11 +99,18 @@ For more details, please try [Getting started](./docs/en/getting-started.md).
   e.g. `cd khi`
 1. Run `cd ./web && npm install` from the project root
 
-#### LanguageTool linting 
-We use LanguageTool to enforce our documentation style and ensure consistency across our Markdown files.
+#### Markdown Linting
+We use markdownlint to enforce our documentation style and ensure consistency across our Markdown files.
 
-### Installation of LanguageTool
-`make languagelint`
+### Installation of markdownlint
+```bash
+npm install -g markdownlint-cli
+```
+
+To lint Markdown files, run:
+```bash
+markdownlint "**/*.md"
+```
 
 #### Run KHI
 1. [Authorize yourself with `gcloud`](https://cloud.google.com/docs/authentication/gcloud)  
