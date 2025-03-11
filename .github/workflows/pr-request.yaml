@@ -20,6 +20,43 @@ on:
       - 'main'
 
 jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the repository
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js (markdownlint requires Node.js)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Step 3: Install markdownlint CLI
+      - name: Install markdownlint-cli
+        run: npm install -g markdownlint-cli
+
+      # Step 4: Create default markdownlint configuration if it doesn't exist
+      - name: Create default markdownlint config
+        run: |
+          if [ ! -f ".markdownlint.json" ] && [ ! -f ".markdownlint.yaml" ] && [ ! -f ".markdownlint.yml" ]; then
+            echo '{
+              "default": true,
+              "MD013": false,
+              "MD033": false
+            }' > .markdownlint.json
+            echo "Created default .markdownlint.json configuration"
+          else
+            echo "Using existing markdownlint configuration"
+          fi
+
+      # Step 5: Run markdownlint on all Markdown files
+      - name: Lint Markdown Files
+        run: |
+          # Find all Markdown files and run markdownlint
+          markdownlint "**/*.md" || exit 1
+  
   backend-tests:
     runs-on: ubuntu-latest
     permissions:
@@ -92,7 +129,7 @@ jobs:
       run: make prepare-frontend
 
     - name: Install Chrome for Angular Test
-      uses: browser-actions/setup-chrome@v1
+      uses: browser-actions/setup-chrome@c785b87e244131f27c9f19c1a33e2ead956ab7ce # 1.7.3
       with:
         chrome-version: stable
 
@@ -140,7 +177,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -156,12 +192,3 @@ jobs:
       - name: Run addlicense
         id: license_header_check
         run: addlicense  -c "Google LLC" -l apache -v -check .
-      
-      - name: run if license_header_check failed
-        if: failure() && steps.license_header_check.outcome == 'failure'
-        env:
-          PULL_REQUEST: ${{ github.event.number }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "License header check failed.\nConsider running \`make add-license-headers\`.\n(Please check ./scripts/make/codegen.mk for more details.)" > /tmp/comment_body
-          gh pr comment "${PULL_REQUEST}" -F /tmp/comment_body
