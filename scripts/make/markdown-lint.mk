@@ -21,4 +21,4 @@ lint-markdown:
 lint-markdown-fix:
 	@echo "Fixing Markdown files with markdownlint-cli2..."
 	@npx markdownlint-cli2 --fix
-	@echo "Automatic fixes applied. Please review changes before committing." 
+	@echo "Automatic fixes applied. Please review changes before committing."
