@@ -28,7 +28,7 @@ jobs:
 
       # Use the official markdownlint action with pinned version
       - name: Run markdownlint
-        uses: DavidAnson/markdownlint-cli2-action@v14.0.0@5dafdc5e8e0f8c5b14884ebbbb2ea47e417a9e90
+        uses: DavidAnson/markdownlint-cli2-action@v14.0.1@b3c9b05e30a401685c698f325fc9d2e5e2cbf4c0
         with:
           globs: "**/*.md"
 
