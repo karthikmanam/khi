@@ -4,10 +4,10 @@
   "description": "Development tools for KHI project",
   "private": true,
   "devDependencies": {
-    "markdownlint-cli": "^0.37.0"
+    "markdownlint-cli2": "^0.12.1"
   },
   "scripts": {
-    "lint:markdown": "markdownlint \"**/*.md\"",
-    "lint:markdown:fix": "markdownlint --fix \"**/*.md\""
+    "lint:markdown": "markdownlint-cli2",
+    "lint:markdown:fix": "markdownlint-cli2 --fix"
   }
 } 
