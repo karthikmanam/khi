@@ -27,36 +27,12 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js (markdownlint requires Node.js)
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      # Use the official markdownlint action with pinned version
+      - name: Run markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v14.0.0@5dafdc5e8e0f8c5b14884ebbbb2ea47e417a9e90
         with:
-          node-version: '18'
+          globs: "**/*.md"
 
-      # Step 3: Install markdownlint CLI
-      - name: Install markdownlint-cli
-        run: npm install -g markdownlint-cli
-
-      # Step 4: Create default markdownlint configuration if it doesn't exist
-      - name: Create default markdownlint config
-        run: |
-          if [ ! -f ".markdownlint.json" ] && [ ! -f ".markdownlint.yaml" ] && [ ! -f ".markdownlint.yml" ]; then
-            echo '{
-              "default": true,
-              "MD013": false,
-              "MD033": false
-            }' > .markdownlint.json
-            echo "Created default .markdownlint.json configuration"
-          else
-            echo "Using existing markdownlint configuration"
-          fi
-
-      # Step 5: Run markdownlint on all Markdown files
-      - name: Lint Markdown Files
-        run: |
-          # Find all Markdown files and run markdownlint
-          markdownlint "**/*.md" || exit 1
-  
   backend-tests:
     runs-on: ubuntu-latest
     permissions:

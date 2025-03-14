@@ -1,0 +1,12 @@
+{
+  "name": "khi-devtools",
+  "version": "1.0.0",
+  "description": "Development tools for KHI project",
+  "private": true,
+  "devDependencies": {
+    "markdownlint-cli": "^0.37.0"
+  },
+  "scripts": {
+    "lint:markdown": "markdownlint \"**/*.md\""
+  }
+} 
