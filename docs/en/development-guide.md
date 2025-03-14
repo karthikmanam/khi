@@ -95,3 +95,16 @@ Several frontend codes are automativally generated from backend codes.
 * `/web/src/app/generated.ts`
 
 These files are generated with [`scripts/frontend-codegen/main.go` Golang codes](../../scripts/frontend-codegen/main.go). It reads several Golang constant arrays and generate frontend codes with templates.
+
+#### Markdown Linting
+We use markdownlint to enforce our documentation style and ensure consistency across our Markdown files.
+
+### Installation of markdownlint
+```bash
+npm install -g markdownlint-cli
+```
+
+To lint Markdown files, run:
+```bash
+markdownlint "**/*.md"
+```
